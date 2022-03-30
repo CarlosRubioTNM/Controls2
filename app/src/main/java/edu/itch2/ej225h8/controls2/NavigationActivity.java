@@ -1,9 +1,11 @@
 package edu.itch2.ej225h8.controls2;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -20,6 +22,7 @@ import edu.itch2.ej225h8.controls2.databinding.ActivityNavigationBinding;
 
 public class NavigationActivity extends AppCompatActivity {
 
+    private Context thisContext;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavigationBinding binding;
 
@@ -27,6 +30,7 @@ public class NavigationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        thisContext = this;
         binding = ActivityNavigationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -34,7 +38,7 @@ public class NavigationActivity extends AppCompatActivity {
         binding.appBarNavigation.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Este es un SnackBar", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -60,8 +64,8 @@ public class NavigationActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.action_camera) {
-            //HICE ALGO
+        if (item.getItemId() == R.id.action_mask) {
+            Toast.makeText(thisContext,"Este es un Toast.", Toast.LENGTH_SHORT).show();
             return true;
         }
         if (item.getItemId() == R.id.action_settings) {
@@ -72,6 +76,7 @@ public class NavigationActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
 
     @Override
     public boolean onSupportNavigateUp() {

@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 if (algo.equals(algo2)) {
                     s = "Son iguales.";
                 }
+                s = s.toUpperCase().concat(" Y esto es extra.").substring(5);
                 Toast t = Toast.makeText(activityContext,s, Toast.LENGTH_SHORT);
                 t.show();
             }
