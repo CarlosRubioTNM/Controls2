@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener goToLogin = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(activityContext, LoginActivity.class);
+            //Intent intent = new Intent(activityContext, LoginActivity.class);
+            Intent intent = new Intent(activityContext, NavigationActivity.class);
             startActivity(intent);
         }
     };
