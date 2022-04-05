@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,7 +54,8 @@ public class HomeFragment extends Fragment {
 
         StudentAdapter adapter = new StudentAdapter(arrayListStudents);
         lstStudents.setAdapter(adapter);
-        lstStudents.setLayoutManager(new LinearLayoutManager(getContext()));
+        //lstStudents.setLayoutManager(new LinearLayoutManager(getContext()));
+        lstStudents.setLayoutManager(new GridLayoutManager(getContext(),2));
     }
 
     @Override
