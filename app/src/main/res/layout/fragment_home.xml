@@ -20,6 +20,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lstStudents"
+        android:layoutAnimation="@anim/lst_student_animation"
         android:layout_width="0dp"
         android:layout_height="674dp"
         android:layout_marginStart="24dp"

@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private LinearLayout btnNext;
     private TextView btnSkip; //Declaración
+    private TextView lblTermsConditions;
     private Context activityContext;
     private String strMessage = "";
     private static final String KEY_MESSAGE = "Message";
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnSkip = findViewById(R.id.btnSkip); //Inicialización
         btnNext = findViewById(R.id.btnNext);
+        lblTermsConditions = findViewById(R.id.lblTermsConditions);
         activityContext = this;
         if (savedInstanceState != null) {
             strMessage = savedInstanceState.getString(KEY_MESSAGE);
@@ -53,6 +57,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         btnNext.setOnClickListener(goToLogin);
+
+        lblTermsConditions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri webpage = Uri.parse("http://www.chihuahua2.tecnm.mx/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                try {
+                    startActivity(intent);
+                } catch(ActivityNotFoundException ex) {
+                    Toast.makeText(activityContext, "No se pudo abrir la página.",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private View.OnClickListener goToLogin = new View.OnClickListener() {

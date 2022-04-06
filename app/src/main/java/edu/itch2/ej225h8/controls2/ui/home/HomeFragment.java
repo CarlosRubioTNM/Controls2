@@ -54,8 +54,8 @@ public class HomeFragment extends Fragment {
 
         StudentAdapter adapter = new StudentAdapter(arrayListStudents);
         lstStudents.setAdapter(adapter);
-        //lstStudents.setLayoutManager(new LinearLayoutManager(getContext()));
-        lstStudents.setLayoutManager(new GridLayoutManager(getContext(),2));
+        lstStudents.setLayoutManager(new LinearLayoutManager(getContext()));
+        //lstStudents.setLayoutManager(new GridLayoutManager(getContext(),2));
     }
 
     @Override
