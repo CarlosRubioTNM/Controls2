@@ -38,8 +38,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/mlight"
-        android:textColor="@color/dark_text"
         android:text="Bienvenido"
+        android:textColor="@color/dark_text"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgPresent" />
@@ -58,52 +58,102 @@
         app:layout_constraintTop_toBottomOf="@+id/lblWelcome" />
 
     <TextView
-        android:id="@+id/lblDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/mlight"
-        android:text="En esta aplicación encontrarán implementados varios de los componentes más útiles de Android Studio."
-        android:justificationMode="inter_word"
-        android:lineSpacingExtra="6dp"
-        android:textColor="@color/light_text"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblNameStudent" />
-
-    <TextView
         android:id="@+id/lblTermsConditions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Términos y Condiciones"
-        android:textSize="14sp"
-        android:fontFamily="@font/mmedium"
-        android:textColor="@color/accent_svg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblDescription"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/mmedium"
+        android:text="Términos y Condiciones"
+        android:textColor="@color/accent_svg"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/btnNext"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="28dp"
-        android:gravity="center"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/btn_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblDescription">
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
-            android:src="@drawable/chevron_right"
             android:layout_width="25dp"
-            android:layout_height="25dp"/>
+            android:layout_height="25dp"
+            android:src="@drawable/chevron_right" />
 
     </LinearLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pagerDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblNameStudent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dot_1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/dot_2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pagerDescription">
+
+        <ImageView
+            android:id="@+id/option1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tint="@color/primary_svg" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dot_2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/dot_3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dot_1"
+        app:layout_constraintTop_toBottomOf="@+id/pagerDescription">
+
+        <ImageView
+            android:id="@+id/option2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tint="@color/primary_svg" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dot_3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="50dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dot_2"
+        app:layout_constraintTop_toBottomOf="@+id/pagerDescription">
+
+        <ImageView
+            android:id="@+id/option3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tint="@color/primary_svg" />
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
