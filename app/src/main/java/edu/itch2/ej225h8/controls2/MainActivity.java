@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.view.DragEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Algo algo = new Algo();
+                /*Algo algo = new Algo();
                 Algo algo2 = new Algo();
                 String s = "No son iguales.";
                 if (algo.equals(algo2)) {
@@ -81,7 +82,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 s = s.toUpperCase().concat(" Y esto es extra.").substring(5);
                 Toast t = Toast.makeText(activityContext,s, Toast.LENGTH_SHORT);
-                t.show();
+                t.show();*/
+
+                //setAlarm("Algo",8,50);
+                //showMap(Uri.parse("geo: 28.641115911613895, -106.07177225693198"));
+
+                Intent intent = new Intent(activityContext, MapsActivity.class);
+                startActivity(intent);
             }
         });
         btnNext.setOnClickListener(goToLogin);
@@ -119,6 +126,28 @@ public class MainActivity extends AppCompatActivity {
                 changeColor();
             }
         });
+    }
+
+    public void setAlarm(String msg, int hour, int minutes) {
+        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
+                .putExtra(AlarmClock.EXTRA_MESSAGE, msg)
+                .putExtra(AlarmClock.EXTRA_HOUR, hour)
+                .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
+        try {
+            startActivity(intent);
+        } catch(ActivityNotFoundException ex) {
+            Toast.makeText(activityContext, "No se pudo establecer la alarma.",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void showMap(Uri geoLocation) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(geoLocation);
+        try {
+            startActivity(intent);
+        } catch(ActivityNotFoundException ex) {
+            Toast.makeText(activityContext, "No se pudo abrir el mapa.",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void changeColor() {
